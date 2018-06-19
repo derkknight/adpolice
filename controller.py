@@ -24,14 +24,14 @@ def review(post_id=None):
 		print('file name', filename)
 	else:
 		print('file not found')
-		return render_template("index.html", error="Invalid Submission")
+		return render_template("index.html", error="Invalid Submission: file upload failed")
 	if models.create_submission(url, 5):
 		page_data = {'url':url, 'score':5}
 		print(page_data)
 		return render_template("results.html", page_data=page_data)
 	else:
 		print("no URL")
-		return render_template("index.html", error="Invalid Submission")
+		return render_template("index.html", error="Invalid Submission: no URL")
 
 if __name__ == '__main__':
 	app.run(debug=True)
