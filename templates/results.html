@@ -4,24 +4,17 @@
         <h1>Results</h1>
     </head>
     <body>
-        <table class="table">
+        <table class="table" border="1" cellpadding="5">
             <thead>
                 <tr>
                     <th scope="col">URL</th>
                     <th scope="col">Score</th>
                 </tr>
             </thead>
-            <!-- {% if links %}
-            {% for link in links %}
+
             <tr>
-                <td>{% link.url %}</td>
-                <td>{% link.score %}</td>
-            </tr>
-            {% endfor %}
-            {% endif %} -->
-            <tr>
-                <td>{% page_data.url %}</td>
-                <td>{% page_data.score %}</td>
+                <td>{{ page_data.url }}</td>
+                <td align="center">{{ page_data.score }}</td>
             </tr>
         </table>
 

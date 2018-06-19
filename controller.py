@@ -18,22 +18,22 @@ def show_home():
 @app.route('/results', methods=["POST"])
 def review(post_id=None):
 	url = request.form.get('website_url')
+	print('url', url)
 	print("Hello")
 	print(request.files)
 	if 'photo' in request.files:
 		# file name for photo
-		filename = photos.save(request.files['photo'])
-		print('file name', filename)
+		file_name = photos.save(request.files['photo'])
+		print('file name', file_name)
 	else:
-		print('file not found')
-		return render_template("index.html", error="Invalid Submission")
+		return render_template("index.html", error="File wasn't uploaded.")
 	if models.create_submission(url, 5):
 		page_data = {'url':url, 'score':5}
 		print(page_data)
 		return render_template("results.html", page_data=page_data)
 	else:
-		print("no URL")
-		return render_template("index.html", error="Invalid Submission")
+		print("no URL", url)
+		return render_template("index.html", error="No URL to the company website.")
 
 if __name__ == '__main__':
 	app.run(debug=True)

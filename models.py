@@ -15,20 +15,16 @@ def get_submissions(loginfo):
 	return cur.fetchone()
 
 def create_submission(url, score):
-	cur.execute("SELECT * FROM submissions WHERE url=%s;", (url,))
-	if cur.fetchone():
-		return False
-	else:
-		sql_statement = """
-		INSERT INTO submissions
-		(url, score)
-		VALUES
-		(%s,%s)
-		RETURNING "pk";
-		"""
-		cur.execute(sql_statement, (url, score))
-		_id = cur.fetchone()[0]
-		conn.commit()
-		if _id:
-			return 1
-		return False
+	sql_statement = """
+	INSERT INTO submissions
+	(url, score)
+	VALUES
+	(%s,%s)
+	RETURNING "pk";
+	"""
+	cur.execute(sql_statement, (url, score))
+	_id = cur.fetchone()[0]
+	conn.commit()
+	if _id:
+		return 1
+	return False
