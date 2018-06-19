@@ -21,12 +21,16 @@ def review(post_id=None):
 	if 'photo' in request.files:
 		# file name for photo
 		filename = photos.save(request.files['photo'])
+		print('file name', filename)
 	else:
+		print('file not found')
 		return render_template("index.html", error="Invalid Submission")
 	if models.create_submission(url, 5):
 		page_data = {'url':url, 'score':5}
+		print(page_data)
 		return render_template("results.html", page_data=page_data)
 	else:
+		print("no URL")
 		return render_template("index.html", error="Invalid Submission")
 
 if __name__ == '__main__':
