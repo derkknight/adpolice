@@ -14,15 +14,15 @@ def get_submissions(loginfo):
 	cur.execute(sql_statement, loginfo)
 	return cur.fetchone()
 
-def create_submission(url, score):
+def create_submission(url, image_url, score):
 	sql_statement = """
 	INSERT INTO submissions
-	(url, score)
+	(url, image_url, score)
 	VALUES
-	(%s,%s)
+	(%s,%s,%s)
 	RETURNING "pk";
 	"""
-	cur.execute(sql_statement, (url, score))
+	cur.execute(sql_statement, (url, image_url, score))
 	_id = cur.fetchone()[0]
 	conn.commit()
 	if _id:
