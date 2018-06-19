@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, redirect, render_template
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import models
+import police_ads
 
 app = Flask(__name__) # create the application instance :)
 app.secret_key = os.urandom(24)
@@ -21,14 +22,17 @@ def review(post_id=None):
 	print('url', url)
 	print("Hello")
 	print(request.files)
+	file_name = ""
 	if 'photo' in request.files:
 		# file name for photo
 		file_name = photos.save(request.files['photo'])
 		print('file name', file_name)
 	else:
 		return render_template("index.html", error="File wasn't uploaded.")
-	if models.create_submission(url, 5):
-		page_data = {'url':url, 'score':5}
+	if url:
+		#page_data = {'url':url, 'score':5}
+		page_data = police_ads.police_ad('static/img/' + file_name, url)
+		#models.create_submission(url, 5)
 		print(page_data)
 		return render_template("results.html", page_data=page_data)
 	else:

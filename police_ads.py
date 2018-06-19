@@ -16,10 +16,10 @@ def police_ad(ad_name, url):
         if word.lower() in page_text:
             count += 1
             word_list.append(word)
-    score = int(len(word_list)/len(ad_text)*100)
-    
+    score = int(float(len(word_list))/len(ad_text)*100)
+    print(float(len(word_list))/len(ad_text))
     similar = True if score > 20 else False
-    return word_list, score, similar, url
+    return ad_text, word_list, score, similar, url
 
 
-pprint(police_ad('test_betterment.png', 'https://www.betterment.com/start-investing/?utm_campaign=ProspectingDontJustInvest2018&utm_medium=display&utm_source=Prospecting&offer_campaign_id=11494573-13d0-4721-87ca-d796a40ccbc3'))
+pprint(police_ad('static/img/betterment.png', 'https://www.betterment.com/start-investing/?utm_campaign=ProspectingDontJustInvest2018&utm_medium=display&utm_source=Prospecting&offer_campaign_id=11494573-13d0-4721-87ca-d796a40ccbc3'))
