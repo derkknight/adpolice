@@ -16,8 +16,10 @@ def police_ad(ad_name, url):
         if word.lower() in page_text:
             count += 1
             word_list.append(word)
+    score = int(len(word_list)/len(ad_text)*100)
 #    return page_text, ad_text, count
-    return word_list
+    similar = True if score > 20 else False
+    return word_list, len(ad_text), score, similar
 
 
-print(police_ad('test.png', 'http://shop.nhl.com/source/google-ak1900nhl?utm_campaign=NHL_Brand_USA|24482432&utm_medium=ppc&ks_id=6220_kw4164922&utm_term=nhl%20com%20shop&matchtype=e&utm_source=g&target=aud-346635865587:kwd-25784773202&pcrid=251981313802&adposition=1t1'))
+print(police_ad('test_att.png', 'https://www.att.com/smallbusiness/explore/specialoffers.html'))
