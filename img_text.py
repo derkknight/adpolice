@@ -6,12 +6,6 @@ import os
 
 
 def process_image(img, blur=True, thresh=False):
-#ap = argparse.ArgumentParser()
-#ap.add_argument("-i", "--image", required=True,
-#	help="path to input image to be OCR'd")
-#ap.add_argument("-p", "--preprocess", type=str, default="thresh",
-#	help="type of preprocessing to be done")
-#args = vars(ap.parse_args())
 
     image = cv2.imread(img)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -31,6 +25,4 @@ def process_image(img, blur=True, thresh=False):
 
     return text
 
-#ssprint(process_image('http://shop.nhl.com/source/google-ak1900nhl?utm_campaign=NHL_Brand_USA|24482432&utm_medium=ppc&ks_id=6220_kw4164922&utm_term=nhl%20com%20shop&matchtype=e&utm_source=g&target=aud-346635865587:kwd-25784773202&pcrid=251981313802&adposition=1t1', 'example_02.png'))
-#cv2.imshow("Image", image)
-#cv2.imshow("Output", gray)
+#print(process_image('http://shop.nhl.com/source/google-ak1900nhl?utm_campaign=NHL_Brand_USA|24482432&utm_medium=ppc&ks_id=6220_kw4164922&utm_term=nhl%20com%20shop&matchtype=e&utm_source=g&target=aud-346635865587:kwd-25784773202&pcrid=251981313802&adposition=1t1', 'example_02.png'))

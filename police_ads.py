@@ -17,7 +17,7 @@ def police_ad(ad_name, url):
             count += 1
             word_list.append(word)
     score = int(len(word_list)/len(ad_text)*100)
-#    return page_text, ad_text, count
+    
     similar = True if score > 20 else False
     return word_list, score, similar, url
 

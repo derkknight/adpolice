@@ -15,11 +15,7 @@ def get_text(link):
     corpus.append(str(soup.find_all('h2')))
     corpus.append(str(soup.find_all('h3')))
     corpus.append(str(soup.find_all('h4')))
-    #print(len(text))
-    #print(title)
-    #print(text)
-    
-    #corpus = ''.join(corpus)
+
     corpus = ''.join(corpus)
     corpus = str(corpus).lower()
     corpus = re.sub('<.*?>','',corpus, flags=re.DOTALL)
