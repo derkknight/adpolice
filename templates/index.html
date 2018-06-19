@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
+    <style>
+    .search {
+        text-align: center;
+    }
+    .main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    </style>
     <head>
-        <h1>Ad Police</h1>
     </head>
     <body>
-        <form action="/results" method="POST">
-            <p>Website URL:<br> <input id="website_url" type="text"/></p><br>
-            <p>JPEG, PNG, GIF file:<br> <input type="file" name="photo"/></p><br>
-            <input type="submit" value="Submit"/>
-        </form>
+        <div class="search container main">
+            <form action="/results" method="POST">
+                <div class="form-group">
+                    <div class="container">
+                        <h1>Ad Police</h1>
+                        <p>Place an advertisement image and the link it redirects to and see if it is a misleading ad.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Website URL</p>
+                        </div>
+                        <div class="col-10">
+                            <input class="form-control" id="website_url" type="text"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="form-control-file" id="file_url" type="file"/>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="button" value="Submit"/>
+                </div>
+            </form>
+        </div>
     </body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </html>
