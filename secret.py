@@ -1,2 +1,2 @@
-connect_str = "dbname='testpython' user='derick' host='localhost' " + \
-                  "password=''"
+connect_str = "dbname='adpolice' user='postgres' host='localhost' " + \
+                  "password='nosagedbhaslo'"

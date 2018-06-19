@@ -23,7 +23,8 @@ def create_submission(url, score):
 		INSERT INTO submissions
 		(url, score)
 		VALUES
-		(%s,%s);
+		(%s,%s)
+		RETURNING "pk";
 		"""
 		cur.execute(sql_statement, (url, score))
 		_id = cur.fetchone()[0]

@@ -11,14 +11,18 @@
                     <th scope="col">Score</th>
                 </tr>
             </thead>
-            {% if links %}
+            <!-- {% if links %}
             {% for link in links %}
             <tr>
                 <td>{% link.url %}</td>
                 <td>{% link.score %}</td>
             </tr>
             {% endfor %}
-            {% endif %}
+            {% endif %} -->
+            <tr>
+                <td>{% page_data.url %}</td>
+                <td>{% page_data.score %}</td>
+            </tr>
         </table>
 
 

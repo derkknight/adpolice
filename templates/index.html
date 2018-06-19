@@ -16,7 +16,7 @@
     <body>
         <div class="search container main">
             {% if error %}
-            <p>{{ error }}</p>
+            <p class="alert alert-danger">{{ error }}</p>
             {% endif %}
             <form action="/results" method="POST" enctype=multipart/form-data>
                 <div class="form-group">
