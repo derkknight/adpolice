@@ -18,6 +18,8 @@ def show_home():
 @app.route('/results', methods=["POST"])
 def review(post_id=None):
 	url = request.form.get('website_url')
+	print("Hello")
+	print(request.files)
 	if 'photo' in request.files:
 		# file name for photo
 		filename = photos.save(request.files['photo'])

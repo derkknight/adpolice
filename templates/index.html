@@ -15,7 +15,10 @@
     </head>
     <body>
         <div class="search container main">
-            <form action="/results" method="POST">
+            {% if error %}
+            <p>{{ error }}</p>
+            {% endif %}
+            <form action="/results" method="POST" enctype=multipart/form-data>
                 <div class="form-group">
                     <div class="container">
                         <h1>Ad Police</h1>
@@ -33,7 +36,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input class="form-control-file" id="file_url" type="file"/>
+                    <input class="form-control-file" name="photo" type="file"/>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Submit"/>
