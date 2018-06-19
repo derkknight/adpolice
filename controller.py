@@ -13,7 +13,7 @@ def show_home():
 @app.route('/results', methods=["POST"])
 def edit(post_id=None):
 	url = request.form.get('url')
-	if models.create_submission(url, 5)
+	if models.create_submission(url, 5):
 		page_data = {'url':url, 'score':5}
 		return render_template("results.html", page_data=page_data)
 	else:
