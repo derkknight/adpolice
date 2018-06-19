@@ -1,7 +1,7 @@
-import requests
 import re
 import time
 from bs4 import BeautifulSoup
+from pprint import pprint
 
 from scrape import get_text
 from img_text import process_image
@@ -19,7 +19,7 @@ def police_ad(ad_name, url):
     score = int(len(word_list)/len(ad_text)*100)
 #    return page_text, ad_text, count
     similar = True if score > 20 else False
-    return word_list, len(ad_text), score, similar
+    return word_list, score, similar, url
 
 
-print(police_ad('test_att.png', 'https://www.att.com/smallbusiness/explore/specialoffers.html'))
+pprint(police_ad('test_betterment.png', 'https://www.betterment.com/start-investing/?utm_campaign=ProspectingDontJustInvest2018&utm_medium=display&utm_source=Prospecting&offer_campaign_id=11494573-13d0-4721-87ca-d796a40ccbc3'))
