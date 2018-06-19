@@ -14,7 +14,7 @@
             </thead>
 
             <tr>
-                <td><img src="img/{{ page_data.image_url }}"></td>
+                <td><img src="{{ url_for('static', filename=page_data.image_url) }}"></td>
                 <td>{{ page_data.url }}</td>
                 <td align="center">{{ page_data.score }}</td>
             </tr>
