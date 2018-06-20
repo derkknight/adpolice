@@ -34,5 +34,41 @@ def review(post_id=None):
 		print("no URL", url)
 		return render_template("index.html", error="No URL to the company website.")
 
+@app.route('/ads', methods=["GET"])
+def show_ads(item_id=None, action=None):
+	page_data = {}
+	if item_id and action:
+		page_data['context'] = models.get_items(item_id, action)
+		return page_data
+	else:
+		page_data['page_num'] = 0
+		page_data['need_previous'] = False
+		page_data['context'] = models.get_items()
+		return render_template("ads.html", page_data=page_data)
+# @app.route('/ads', methods=["GET"])
+# def show_ads():
+# 	page_data = {}
+# 	page_data['page_num'] = 0
+# 	page_data['need_previous'] = False
+# 	page_data['context'] = models.get_items()
+# 	return render_template("index.html", page_data=page_data)
+
+@app.route('/next/<item_id>/<page_num>', methods=["GET"])
+def next_5(item_id=None, page_num=None):
+	page_data = show_home(item_id, 'next')
+	page_data['page_num'] = int(page_num) + 1
+	page_data['need_previous'] = True
+	return render_template("index.html", page_data=page_data)
+
+@app.route('/last/<item_id>/<page_num>', methods=["GET"])
+def last_5(item_id=None, page_num=None):
+	page_data = show_home(item_id, 'last')
+	page_data['page_num'] = int(page_num) - 1
+	if page_data['page_num'] == 0:
+		page_data['need_previous'] = False
+	else:
+		page_data['need_previous'] = True
+	return render_template("index.html", page_data=page_data)
+
 if __name__ == '__main__':
 	app.run(debug=True)
