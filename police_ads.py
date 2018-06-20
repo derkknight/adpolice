@@ -22,4 +22,4 @@ def police_ad(ad_name, url):
     return ad_text, word_list, score, similar, url
 
 
-pprint(police_ad('static/img/betterment.png', 'https://www.betterment.com/start-investing/?utm_campaign=ProspectingDontJustInvest2018&utm_medium=display&utm_source=Prospecting&offer_campaign_id=11494573-13d0-4721-87ca-d796a40ccbc3'))
+# pprint(police_ad('static/img/betterment.png', 'https://www.betterment.com/start-investing/?utm_campaign=ProspectingDontJustInvest2018&utm_medium=display&utm_source=Prospecting&offer_campaign_id=11494573-13d0-4721-87ca-d796a40ccbc3'))
